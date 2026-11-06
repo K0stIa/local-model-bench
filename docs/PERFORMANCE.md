@@ -1,27 +1,16 @@
-# Відокремлені тести продуктивності
+# Isolated performance benchmarks
 
-Runner не запускає сервер, не встановлює пакети й не змінює робочі конфігурації,
-BIOS, GPU/RAM allocation, swap або системні caches. Потрібен окремий localhost
-llama-server з `--slots`, одним slot (`-np 1`) та портом, не зайнятим сервісами.
-Не запускайте паралельно з іншою генерацією. Idle-check не є ексклюзивним lock.
+The runner does not start servers, install packages or change production configuration, BIOS, GPU/RAM allocation, swap or system caches. Use a dedicated localhost llama-server with `--slots`, one slot (`-np 1`) and a port unused by production services. Do not run concurrently with other generation. The idle check is not an exclusive lock.
 
-## Матриця
+## Test matrix
 
-Для кожної моделі з незмінним GGUF SHA256: MTP off/on × контекст 8192/32768.
-Порівнюйте MTP лише якщо конкретні модель, GGUF та build його підтримують.
-Відсутність підтримки позначайте `unsupported`, а не імітуйте звичайним draft model.
-Збережіть точні argv, `--version`, commit/build flags/backend, quantization,
-число GPU layers, batch/ubatch, flash-attention та KV-cache типи у manifest.
-Не копіюйте environment, приватні конфіги або токени. Для експериментального
-build змінюйте тільки binary, тримайте його в окремій папці. Не перемикайте
-production symlink чи service. Інші параметри повинні лишатися однаковими.
+For each fixed model GGUF SHA256: MTP off/on times context sizes 8192/32768. Compare MTP only when the specific model, GGUF and build support it. Mark unsupported combinations as `unsupported`; do not substitute ordinary draft-model speculation.
 
-Для 512/4096 prompt tokens використайте один синтетичний UTF-8 prompt-файл
-на кожну довжину, перевіривши довжину tokenizer конкретної моделі. Різні моделі
-можуть токенізувати текст по-різному: звітуйте виміряний `prompt_n`, не лише ціль.
-Default profile має 96 рядків, НЕ гарантує конкретної кількості токенів.
+Record exact argv, `--version`, commit/build flags/backend, quantization, GPU layers, batch/ubatch, flash attention and KV-cache types in the manifest. Never copy environment variables, private configuration or tokens. Keep experimental binaries in a separate directory and change only the binary for build comparisons. Never switch production symlinks or services. Keep other parameters constant.
 
-## Запуск
+For 512/4096 prompt tokens, use one synthetic UTF-8 prompt file per target length and validate its token count with the model tokenizer. Different tokenizers produce different counts: report measured `prompt_n`, not just the target. The default profile has 96 lines and does NOT guarantee a specific token count.
+
+## Running
 
 ```sh
 python3 -m bench.performance --endpoint http://127.0.0.1:18081 \
@@ -30,42 +19,20 @@ python3 -m bench.performance --endpoint http://127.0.0.1:18081 \
   --output results/performance-variant.jsonl
 ```
 
-`--dry-run` перевіряє inputs без мережі. Output створюється exclusive, не overwrite.
-Manifest обов'язковий, довільний JSON, його зміст і hash зберігаються з results.
-Рекомендовані поля: model_sha256, binary_sha256, build_commit, argv, mtp,
-context_size, prompt_target_tokens, backend, hardware, experiment_label.
+`--dry-run` validates inputs without networking. Output uses exclusive creation and never overwrites existing files. A manifest is mandatory: arbitrary JSON whose contents and hash are preserved with results. Suggested fields: model_sha256, binary_sha256, build_commit, argv, mtp, context_size, prompt_target_tokens, backend, hardware, experiment_label.
 
-Default: seed42, greedy, 128 decode tokens (`ignore_eos`), 1 first request,
-3 повтори без prefix cache, 3 з prefix cache. Поле `phase` розділяє ці групи.
-Warm_no_cache перевимірює prefill; prefix_cache вимірює інший сценарій й НЕ
-входить до його середнього. `first_request` є лише першим запитом цього runner:
-це не гарантія холодної моделі чи filesystem cache. Для model-cold окремо
-перезапустіть лише тестовий сервер і запишіть час startup→ready зовнішнім таймером.
-Не чистіть системний page cache. Порядок off/on чергуйте між повторами; за потреби
-зробіть повторний повний прогін, щоб відрізнити ефект температури й навантаження.
+Defaults: seed 42, greedy decoding, 128 decode tokens (`ignore_eos`), one first request, three repetitions without prefix cache and three with prefix cache. The `phase` field separates these groups. `warm_no_cache` remeasures prefill; `prefix_cache` represents a different scenario and is NOT included in its average. `first_request` only means the first request from this runner, not a guaranteed cold model or filesystem cache. For model-cold measurements, restart only the test server and externally time startup to readiness. Do not flush system page caches. Alternate off/on ordering between repetitions; repeat the full run if needed to distinguish temperature and background-load effects.
 
-## Метрики та межі
+## Metrics and limitations
 
-JSONL: metadata, measurement або error. Timings native llama.cpp дають окремо
-prefill/decode count, ms, tokens/s; wall_seconds включає HTTP overhead.
-Для cached запитів prompt_n може означати тільки реально обчислені токени.
-Server timings не є streaming TTFT. Memory samples кожні 250 ms: RSS/HWM/swap
-процесу, system MemAvailable/SwapFree, load average. RSS не дорівнює VRAM,
-HWM накопичений за життя процесу; короткі піки можуть бути пропущені. Shared
-UMA RAM не можна просто додати до RSS. GPU metrics, якщо доступні, записуйте
-окремим sampler, не робіть припущення за RAM. PID передає оператор.
+JSONL records contain metadata, measurements or errors. Native llama.cpp timings separate prefill/decode counts, milliseconds and tokens/s; wall_seconds includes HTTP overhead. For cached requests, prompt_n may count only tokens actually computed. Server timings are not streaming TTFT.
 
-При timeout/error runner зупиняється; перевірте, чи сервер завершив запит,
-перед наступним тестом. Truncation і неповний decode budget вважаються invalid.
-Звіт: медіана та min/max warm повторів, cached окремо, всі raw samples збережені.
-Три повтори дають тільки попередній сигнал, а не статистично сильний висновок.
+Memory is sampled every 250 ms: process RSS/HWM/swap, system MemAvailable/SwapFree and load average. RSS is not VRAM. HWM is cumulative over the process lifetime; short peaks may be missed. Shared UMA RAM cannot simply be added to RSS. Record available GPU metrics with a separate sampler rather than inferring them from RAM. The operator supplies the PID.
 
-## Коректність обов'язкова
+The runner stops on timeout/error. Verify the server finished the request before another test. Truncation or an incomplete decode budget invalidates a measurement. Report the median and min/max of warm repetitions, cached results separately, and retain raw samples locally. Three repetitions provide a preliminary signal, not strong statistical evidence. Audit all artifacts before publishing.
 
-Synthetic performance не оцінює зміст відповідей. На кожному варіанті виконайте
-окремо `python3 -m bench run` із однаковим profile/seed/custom задачами, потім
-`python3 -m bench report`. Coding запускається лише в наявному sandbox.
-Для MTP порівняйте deterministic output hashes на performance-запитах і
-pass/fail correctness-suite. Однаковий hash не є повним доказом коректності;
-різний hash потребує перевірки, не означає автоматично помилку (backend numerical
-variation). Не називайте виграш прийнятним без перевірки якості та стабільності.
+## Correctness is mandatory
+
+Synthetic performance does not assess answer content. For each variant, separately run `python3 -m bench run` with identical profiles/seeds/custom tasks, followed by `python3 -m bench report`. Generated code runs only in the configured sandbox.
+
+For MTP, compare deterministic output hashes on performance requests and correctness-suite pass/fail results. Matching hashes do not prove complete correctness; different hashes require investigation but do not automatically imply an error because numerical backend variation is possible. Do not accept a performance gain without checking quality and stability.

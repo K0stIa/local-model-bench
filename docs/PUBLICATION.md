@@ -7,3 +7,7 @@ This publication is a sanitized snapshot, not the original local Git history. Lo
 HumanEval is redistributed under its upstream MIT license; see data/humaneval/LICENSE and PROVENANCE.json. No additional license has yet been selected for the original harness.
 
 New candidate model manifests are pending plans, not evidence of successful downloads or inference.
+
+## English-only revision
+
+All current documentation, prompts and response fields are English. The language-specific summary trial was removed rather than relabeled as an English measurement. Historical aggregate results remain historical; they are not scores for the translated prompts. Legacy source prompts are English adaptations, not byte-for-byte historical artifacts. Public Git history is retained; this change does not erase earlier versions. Third-party dataset and license bytes are unchanged.

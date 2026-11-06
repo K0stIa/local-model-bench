@@ -1,17 +1,17 @@
 # Local Model Bench
 
-Відтворювані локальні тести coding, tool calling та інтерпретації синтетичних даних Home Assistant. Ніякого підключення до реального дому, токенів або зміни Hermes/llama-swap. Публічний відтворюваний snapshot локального benchmark-репозиторію.
+Reproducible local benchmarks for coding, tool calling and interpretation of synthetic Home Assistant data. No connection to a real home, credentials or changes to Hermes/llama-swap. This is a sanitized public snapshot of a local benchmark repository.
 
-## Що є
+## Included suites
 
-- `custom`: 9 coding-задач (168 крайових cases) + 10 структурованих агентних сценаріїв. Specs походять із тестування 6 листопада 2026; неоднозначну задачу unavailable замінено явним device mapping.
-- `humaneval`: 164 офіційні задачі OpenAI HumanEval (MIT), pinned commit та SHA256 у `data/humaneval/PROVENANCE.json`. `--limit 10 --seed 42` — детермінований smoke subset, **не офіційний HumanEval pass@1**. Ми запитуємо повну функцію через chat, а не raw completion. Повний набір теж є адаптованим протоколом.
-- Агрегований історичний звіт у `results/legacy-20261106/REPORT.md`. Сирі запити, відповіді, tool transcripts і детальні grading JSON залишені локально та не публікуються. Історичний звіт має інші умови, ніж новий harness. Legacy source збережено як `.py.txt`, не як рекомендований executor.
-- Fail-closed `bubblewrap` sandbox для згенерованого коду: окремі PID/network/user namespaces, без домашньої файлової системи, read-only root і системні бібліотеки, 16 MiB tmpfs, обмеження CPU/RAM/output/time/processes. Це defense in depth, не VM і не гарантія проти kernel exploit.
+- `custom`: 9 coding tasks (168 edge cases) and 10 structured agent scenarios. Specifications originate from the November 6, 2026 experiment; an ambiguous availability question was replaced with explicit device mapping. Current prompts and response fields are English-only.
+- `humaneval`: 164 official OpenAI HumanEval tasks (MIT), with pinned commit and SHA256 in `data/humaneval/PROVENANCE.json`. `--limit 10 --seed 42` selects a deterministic smoke subset, **not official HumanEval pass@1**. We request complete functions through chat rather than raw completions; the full suite also uses an adapted protocol.
+- Aggregate historical report: `results/legacy-20261106/REPORT.md`. Raw requests, responses, tool transcripts and detailed grading JSON remain local and are not published. Historical conditions differ from the current harness. Legacy sources are stored as `.py.txt`, not recommended executors; their prompts have been adapted to English, so they are not exact historical reproductions.
+- Fail-closed `bubblewrap` sandbox for generated code: separate PID/network/user namespaces, no home filesystem, read-only root/system libraries, 16 MiB tmpfs, and CPU/RAM/output/time/process limits. This is defense in depth, not a VM or protection guaranteed against kernel exploits.
 
-## Швидкий початок
+## Quick start
 
-Потрібні Linux, Python 3.12+, git і bubblewrap з дозволеними user namespaces. Ніяких Python dependencies. Перевірка без моделей:
+Requires Linux, Python 3.12+, git and bubblewrap with user namespaces enabled. No Python dependencies. Model-free validation:
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -19,7 +19,7 @@ python3 -m bench.verify_references
 python3 -m bench list --suite custom
 ```
 
-Запустіть окремий локальний OpenAI-compatible llama-server з `--host 127.0.0.1 --slots`, правильною моделлю та рідним chat template. Сервіс самостійно не запускається, модель не завантажується, робочий конфіг не редагується.
+Start a separate local OpenAI-compatible llama-server with `--host 127.0.0.1 --slots`, the correct model and its native chat template. The harness does not start services, download models or edit production configuration.
 
 ```sh
 python3 -m bench run \
@@ -35,42 +35,39 @@ python3 -m bench run \
 python3 -m bench report results/MODEL-custom.jsonl
 ```
 
-`--dry-run` друкує вибрані задачі без мережі/генерації. `--task ID` дозволяє повторювати конкретний тест. `--repeat 3` зберігає кожну спробу, не вибирає найкращу. Output створюється через exclusive-create, існуючий запуск не перезаписується.
+`--dry-run` prints selected tasks without network access or generation. `--task ID` selects a specific task. `--repeat 3` preserves every attempt rather than selecting the best. Output files use exclusive creation; existing runs are not overwritten.
 
-Орієнтир: custom 19 задач може зайняти 3–15 хвилин залежно від моделі/reasoning; HumanEval10 приблизно 2–10 хвилин. Це бюджет планування, не обіцянка. `--budget` і `--timeout` зупиняють клієнт; після timeout необхідно перевірити, що сервер припинив генерацію. Runner зупиняється на першій транспортній помилці, не перемикає модель автоматично. Idle-check зменшує ризик завадити користувачу, але не є ексклюзивним lock: використовуйте окремий benchmark server та координуйте GPU.
+Planning estimates: 19 custom tasks may take 3-15 minutes depending on model/reasoning, and HumanEval10 approximately 2-10 minutes. These are not guarantees. `--budget` and `--timeout` stop the client; after a timeout, verify the server stopped generation. The runner stops on the first transport error and never switches models automatically. The idle check is not an exclusive lock: use a dedicated benchmark server and coordinate GPU use.
 
-## Чесне порівняння
+## Fair comparisons
 
-Зафіксуйте GGUF URL/revision/hash/quant, runtime version, backend, context, GPU offload, KV types, sampling, max_tokens, reasoning mode. Копіюйте лише whitelist параметрів, не entire user config. JSONL містить exact request/response, profile, IDs, seed, час, commit/dirty flag і source SHA256 harness. `--runtime-manifest sanitized.json` вбудовує окремий manifest та його SHA256; без нього runtime provenance позначено null. Зберігайте додатковий `runtime-manifest.json` поруч.
+Record GGUF URL/revision/hash/quantization, runtime version, backend, context, GPU offload, KV types, sampling, max_tokens and reasoning mode. Copy only an allowlist of parameters, never entire private configuration. Local JSONL output contains exact requests/responses, profile, IDs, seed, timing, commit/dirty flag and harness source SHA256. `--runtime-manifest sanitized.json` embeds a separate manifest and its SHA256; runtime provenance is null without it. Keep an additional `runtime-manifest.json` beside each run. Audit results before any publication.
 
-Не примушуйте always-thinking модель до unsupported non-thinking. Профілі — явні JSON-файли; для LFM потрібен більший max_tokens і native reasoning. `profiles/nonthinking.json` — лише для моделей, які підтримують enable_thinking. `reasoning-low.json` — для відповідних endpoint. Native-default не нав'язує model-specific flags.
+Do not force an always-thinking model into unsupported non-thinking mode. Profiles are explicit JSON files. LFM needs a larger max_tokens budget and native reasoning. `profiles/nonthinking.json` is only for models supporting enable_thinking; `reasoning-low.json` is for compatible endpoints. Native-default imposes no model-specific flags.
 
-Coding correctness окремо від Markdown/JSON formatting. Agent functional score перевіряє лише визначені поля/виклики, не всю семантику пояснення, українську чи загальну безпеку. Загальний pass rate малих subset має велику невизначеність. Public tasks можуть бути в training data. Не змішуйте різні seeds/subsets/quantization чи legacy scores в один рейтинг.
+Coding correctness is separate from Markdown/JSON formatting. Agent functional scores check specified fields/calls, not complete explanation semantics, language quality or general safety. Small subsets have considerable uncertainty. Public tasks may occur in training data. Do not combine different seeds, subsets, quantizations or historical scores into a single ranking. English-adapted prompts have not inherited the historical model scores.
 
-## Розширення
+## Extending the suite
 
-1. Додайте task зі spec, незалежними test cases і reference у `bench/custom_coding.py`, або messages/tools і очікування у `custom_agents.py`/`agent_grading.py`.
-2. Не додавайте живі датчики/секрети. Усі fixtures синтетичні.
-3. Покрийте grading unit-тестом, перевірте reference і known-wrong solution.
-4. Нові suites додавайте через `load_suite` з pinned dataset/licensing/provenance. Full SWE-bench потребує великих контейнерів і тривалих agent loops, тому тут не ввімкнений.
+1. Add specifications, independent test cases and references to `bench/custom_coding.py`, or messages/tools and expectations to `custom_agents.py`/`agent_grading.py`.
+2. Never add live sensor data or secrets. All fixtures must be synthetic and all repository text must be English.
+3. Add grading unit tests; validate reference and known-wrong solutions.
+4. Register new suites through `load_suite` with pinned datasets, licensing and provenance. Full SWE-bench needs large containers and long agent loops, so it is not enabled here.
 
-## Перевірено
+## Validation
 
-На benchmark-host: unit tests; sandbox home/network/timeout probes; усі 164 canonical HumanEval solutions; 9 custom reference solutions. Ці тести не викликають моделі. Нові кандидатні моделі запускаються окремо і мають власні JSONL результати.
+Model-free checks cover unit tests, sandbox home/network/timeout probes, all 164 canonical HumanEval solutions and 9 custom references. Candidate inference runs are separate and produce local JSONL results.
 
-## Ліцензії
+## Licenses
 
-HumanEval: MIT, повний upstream LICENSE поряд із dataset. Для оригінального harness/синтетичних fixtures ліцензію на повторне використання наразі не призначено. Публічна видимість не означає надання окремої open-source ліцензії. Моделі мають власні ліцензії та не входять до Git.
+HumanEval uses MIT; its full unmodified upstream license accompanies the dataset. No reuse license has yet been selected for the original harness or synthetic fixtures. Public visibility does not grant a separate open-source license. Models have their own licenses and are not included in Git.
 
-## Межі автоматичного grading
+## Grading limitations
 
-Порівняння ізольовані від namespace кандидата, ранній вихід не означає успіх. Sandbox захищає host, але цей Python harness не є криптографічно захищеним від навмисного зламу grading через introspection. Для свідомо ворожого коду потрібен окремий VM/додаткове зміцнення. Не називайте це гарантією безпеки агента.
+Comparisons are isolated from the candidate namespace; early exit does not imply success. The sandbox protects the host, but this Python harness is not cryptographically protected against deliberate grading attacks through introspection. Intentionally hostile code needs a separate VM and further hardening. This is not a guarantee of agent safety.
 
-Candidate download manifests in `manifests/` describe upstream expected hashes and pinned revisions, not completed downloads or measured results. Update local validation only after hashing the complete file. LFM always-thinking uses a separately recorded output budget (`profiles/lfm-native.json`); this is not an equal-compute comparison.
+Candidate manifests in `manifests/` describe expected upstream hashes and pinned revisions, not completed downloads or measured results. Record local validation only after hashing the complete file. LFM always-thinking uses a separately recorded output budget (`profiles/lfm-native.json`); this is not an equal-compute comparison.
 
-## Окремий профіль продуктивності
+## Separate performance profile
 
-`profiles/performance.json` і `python3 -m bench.performance` вимірюють native
-llama.cpp prefill/decode, warm/cache phases та sampled memory. Матриця MTP,
-контекстів і збірок, правила cold/warm та обов'язкової перевірки коректності:
-[docs/PERFORMANCE.md](docs/PERFORMANCE.md). Runner не змінює робочих сервісів.
+`profiles/performance.json` and `python3 -m bench.performance` measure native llama.cpp prefill/decode, warm/cache phases and sampled memory. See [docs/PERFORMANCE.md](docs/PERFORMANCE.md) for the MTP/context/build matrix, cold/warm definitions and mandatory correctness checks. The runner does not change production services.

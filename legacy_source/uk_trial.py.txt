@@ -1,5 +1,0 @@
-import pathlib
-OUT=pathlib.Path(__file__).parent
-ns={'__file__':str(OUT/'runner.py')};exec((OUT/'runner.py').read_text().split("start=time.monotonic()\nprint('MODEL_ORDER'")[0],ns)
-for model in ['gemma-4-26b-a4b-8k','qwen3.8-35b-a3b-mtp-8k','gpt-oss-20b-8k','qwen3.8-27b-mtp-8k']:
- ns['request'](model,'uk_summary',{'messages':[{'role':'user','content':'Відповідай лише українською, максимум 3 короткі речення. Поясни стан дому за цим синтетичним зрізом: батарея 73,5%; навантаження 410 Вт; на трьох фазах 229/231/232 В; ElectricitySensor=off, але фізичне значення цього датчика невідоме; температура балкона unavailable; ємність батарей невідома. Чи точно зникло світло, чи холодно на балконі та на скільки годин вистачить батареї? Не вигадуй відсутні дані.'}],'max_tokens':256})

@@ -1,74 +1,66 @@
-# Локальне порівняння моделей для coding та домашнього агента
+# Historical local model comparison for coding and home-agent tasks
 
-Дата: 6 листопада 2026. Комп’ютер: MINISFORUM, Ryzen 9 7940HS / Radeon 780M.
+Date: November 6, 2026. Hardware: MINISFORUM, Ryzen 9 7940HS / Radeon 780M.
 
-## Методика
+## Method
 
-Порівняно чотири встановлені локальні конфігурації через llama-swap/llama.cpp b11827. Контекст 8K, temperature=0, seed=42. Qwen/Gemma: enable_thinking=false; GPT-OSS: reasoning_effort=low. Це практичні профілі, не рівні бюджети reasoning.
+Four installed local configurations were compared through llama-swap/llama.cpp b11827, with 8K context, temperature=0 and seed=42. Qwen/Gemma used enable_thinking=false; GPT-OSS used reasoning_effort=low. These are practical profiles, not equal reasoning budgets.
 
-9 coding/snippet-debugging задач, 168 прихованих перевірок; 10 однозначних агентних сценаріїв; окремий міні-репозиторій з читанням README/коду/тестів і поданням патча (7 прихованих перевірок); повтори трьох обраних сценаріїв; окреме українське пояснення. Одне неоднозначне питання про доступність пристроїв збережене, але виключене з агрегатів і замінене уточненим для всіх моделей.
+The experiment included 9 coding/snippet-debugging tasks with 168 hidden checks; 10 unambiguous agent scenarios; a small repository task requiring README/code/test inspection and a patch, with 7 hidden checks; and repetitions of three selected scenarios. One ambiguous device-availability question was retained locally but excluded from aggregates and replaced with a clarified version for all models. A separate language-specific explanation trial was outside the numerical aggregate and is not part of the current English-only suite.
 
-Усі 168 очікуваних coding-результатів перевірені незалежними алгоритмами до оцінки відповідей. Враховано незмінність вхідних даних та відсутність alias для merge_patch. Код виконувався лише у тестовому процесі з обмеженими imports/builtins, CPU/пам’яттю та timeout. Моделям не надавалися живі HA-дані, секрети, shell або мережеві інструменти.
+All 168 expected coding results were checked with independent algorithms before evaluating model responses. Checks included input immutability and non-aliasing for merge_patch. Code ran only in a test process with restricted imports/builtins, CPU/memory limits and timeouts. Models received no live Home Assistant data, secrets, shell or network tools.
 
-Рандомізовано порядок моделей і задач; усі запуски послідовні. Перед кожним запитом перевірялися активні слоти. Налаштування сервісів і основну модель Hermes не змінено. Це прямий тест модельного API та контрольованих інструментів, а не повний Hermes з його пам’яттю й усіма toolsets.
+Model/task order was randomized and all runs were sequential. Active slots were checked before each request. Production services and the primary Hermes model were unchanged. This tested the model API and controlled tools directly, not the complete Hermes agent with memory and all toolsets.
 
-## Основні результати першої спроби
+## First-attempt results
 
-| Локальна конфігурація | Coding: повністю правильні задачі | Агентні: правильні поля/протокол | Строгий JSON/формат агентних | Міні-репо |
+| Local configuration | Fully correct coding tasks | Correct agent fields/protocol | Strict agent JSON/format | Mini-repository |
 |---|---:|---:|---:|---:|
 | qwen3.8-27b-mtp-8k | 8/9 | 8/10 | 7/10 | 7/7 |
 | qwen3.8-35b-a3b-mtp-8k | 7/9 | 10/10 | 10/10 | 7/7 |
 | gpt-oss-20b-8k | 8/9 | 7/10 | 7/10 | 7/7 |
 | gemma-4-26b-a4b-8k | 7/9 | 10/10 | 5/10 | 7/7 |
 
-Числові/протокольні оцінки не включають повну якість вільного пояснення або української мови. Markdown-обгортки нормалізувалися для функціональних тестів, але рахувалися окремою помилкою строгого формату. Демонстраційний __main__ GPT-OSS не виконувався при unit-тестуванні функції й відмічений окремо.
+Numerical/protocol scores do not measure complete free-form explanation or language quality. Markdown wrappers were normalized for functional tests but counted as strict-format failures. GPT-OSS demonstration __main__ code was not executed when unit-testing the function and was recorded separately.
 
-## Швидкість на спільно правильно розв’язаних задачах
+These are historical results under the original prompts. Current English-adapted prompts have not been rerun and must not inherit these scores.
 
-Медіана повного часу запиту після прогріву, лише на однакових задачах, які всі чотири моделі виконали правильно. Це не токени/с.
+## Speed on tasks solved correctly by all models
 
-| Конфігурація | 6 coding-задач | 7 агентних задач |
+Median warmed end-to-end request time on identical tasks all four models solved correctly. These are seconds, not tokens/s.
+
+| Configuration | 6 coding tasks | 7 agent tasks |
 |---|---:|---:|
-| qwen3.8-27b-mtp-8k | 11.99 с | 10.68 с |
-| qwen3.8-35b-a3b-mtp-8k | 3.81 с | 4.29 с |
-| gpt-oss-20b-8k | 9.20 с | 2.92 с |
-| gemma-4-26b-a4b-8k | 5.87 с | 2.87 с |
+| qwen3.8-27b-mtp-8k | 11.99 s | 10.68 s |
+| qwen3.8-35b-a3b-mtp-8k | 3.81 s | 4.29 s |
+| gpt-oss-20b-8k | 9.20 s | 2.92 s |
+| gemma-4-26b-a4b-8k | 5.87 s | 2.87 s |
 
-Холодний перший warm-up: 27B 20,00 с; 35B 19,45 с; GPT-OSS 11,06 с; Gemma 12,81 с. Ці значення включають завантаження й короткий запит, а не чистий час завантаження. Warm-up GPT-OSS досяг ліміту 16 токенів і не оцінювався як задача.
+First cold warm-up requests: 27B 20.00 s; 35B 19.45 s; GPT-OSS 11.06 s; Gemma 12.81 s. These include loading plus a short request, not pure loading time. GPT-OSS warm-up reached its 16-token limit and was not scored as a task.
 
-У retrieval-запиті приблизно 2,4–3,7 тис. токенів усі дали правильні три значення: 27B 49,53 с, 35B 12,00 с, GPT-OSS 9,38 с, Gemma 9,40 с. Кількість токенів різна через tokenizer.
+For a retrieval request of approximately 2.4-3.7 thousand tokens, all models returned the three correct values: 27B 49.53 s, 35B 12.00 s, GPT-OSS 9.38 s, Gemma 9.40 s. Token counts differ by tokenizer.
 
-## Виявлені помилки
+## Observed failures
 
-- Усі чотири провалили першу спробу nearest timestamp з правилом найменшого індексу серед дублікатів. Gemma виконала точний повтор правильно; інші залишили помилку. Навіть temperature=0 не гарантує однаковий результат на GPU.
-- Gemma вважала незмінний накопичувальний лічильник його reset і завищувала споживання.
-- 35B неправильно обробила LRU capacity=0.
-- 27B і GPT-OSS у менш підказаних сценаріях зробили хибний висновок про відключення з ElectricitySensor=off попри фазні напруги. У GPT-OSS один user-data сценарій також виконав сторонню інструкцію й вигадав температуру 25°C.
-- GPT-OSS на вимогу вимкнути обігрівач зробив зайвий read-call замість завершеної відповіді про неможливість. Write-tool не існував і керування не виконувалося.
-- Gemma часто додавала Markdown до JSON-only. 27B обгортала всі coding-відповіді в Markdown. Це важливо для автоматичного parser, але не дорівнює помилці алгоритму.
+- All four failed the first nearest-timestamp attempt with lowest-index tie-breaking among duplicates. Gemma passed an exact repeat; the others retained the error. Even temperature=0 does not guarantee identical GPU output.
+- Gemma treated an unchanged cumulative meter reading as a reset and overestimated consumption.
+- 35B mishandled LRU capacity=0.
+- In less guided scenarios, 27B and GPT-OSS incorrectly inferred a power outage from ElectricitySensor=off despite phase voltages. In one user-data scenario, GPT-OSS also followed an injected instruction and fabricated a temperature of 25 degrees C.
+- When asked to turn off a heater, GPT-OSS made an unnecessary read call instead of a final inability response. No write tool existed and no control action occurred.
+- Gemma frequently wrapped JSON-only answers in Markdown. 27B wrapped all coding responses in Markdown. This matters to automated parsers but is not an algorithmic error.
 
-## Відтворюваність і обмеження
+## Reproducibility and limitations
 
-Це власний тестовий набір, не офіційний HumanEval, MBPP чи SWE-bench. Результатів недостатньо для універсального рейтингу. Міні-репо має невеликий баг з резервуванням залишків, не реальний великий проєкт. Довгі контексти 32–128K не тестувалися. Повторено лише 3 вибрані задачі, не весь набір. Немає повного peak RAM/VRAM або TTFT вимірювання.
+This is a custom suite, not official HumanEval, MBPP or SWE-bench. Results do not establish a universal ranking. The mini-repository contains a small inventory-reservation bug, not a large real project. Long contexts of 32-128K were not tested. Only three selected tasks were repeated, not the whole suite. Complete peak RAM/VRAM and TTFT measurements are unavailable.
 
-Початкова назва локальної 35B потребує обережності: GGUF general.name=Ours, architecture=qwen35moe, base_model=Qwen3.6 35B A3B, base repo https://huggingface.co/Qwen/Qwen3.6-35B-A3B. Тест не підтверджує офіційну модель під назвою Qwen3.8-35B-A3B.
+The local 35B alias requires caution: GGUF general.name=Ours, architecture=qwen35moe, base_model=Qwen3.6 35B A3B, base repository https://huggingface.co/Qwen/Qwen3.6-35B-A3B. The test does not verify an official model named Qwen3.8-35B-A3B.
 
-Збережено 112 модельних запитів. Сумарний час запитів і міні-репо: 987.1 с; підготовка й незалежна перевірка додаткові. Жодного timeout у оцінюваних запитах; ліміт токенів досягнуто лише warm-up GPT-OSS.
+The original experiment retained 112 model requests locally. Total request and mini-repository time was 987.1 s, excluding preparation and independent verification. No evaluated request timed out; only GPT-OSS warm-up hit its token limit.
 
-## Артефакти
+## Artifacts and language adaptation
 
-Нижче перелічено локальні артефакти оригінального експерименту. Сирі JSONL, детальні scores і робочі файли міні-репозиторію не включені до публічної копії; тут опубліковано лише цей агрегований звіт і тестові сценарії.
+Raw JSONL, detailed scores and working mini-repository files are excluded from this public snapshot. Only this aggregate report and synthetic scenarios are published. Legacy source is now an English adaptation and is not an exact reproduction of the historical prompts. The separate language-specific trial was removed; its results are not presented as English-language performance.
 
-- suite.py — специфікації, очікувані результати та приховані перевірки.
-- runner.py, repo_trial.py, uk_trial.py — відтворювані сценарії.
-- requests.jsonl, results.jsonl — запити, відповіді, usage і timing.
-- evaluate.py, scores.json — перевірка й результати.
-- repo_results.jsonl та repo_* — історія виправлення і фінальні файли міні-репозиторію.
+## Practical interpretation
 
-## Окреме сліпе оцінювання української відповіді
-
-Після чіткого українського запиту всі чотири відповіли українською в межах трьох речень, не вигадали температуру балкона чи години автономності. Незалежний оцінювач, не знаючи назв моделей, відзначив: GPT-OSS краще зберіг невизначеність, але його аргумент через SOC і навантаження слабкий; 27B неправильно доводила наявність мережі самим споживанням; 35B і Gemma надто впевнено трактували фазні напруги без знання місця вимірювання. У цьому запиті «зникло світло» саме по собі неоднозначне: немає права змішувати відключення зовнішньої мережі й наявність живлення дому від батарей. Цей якісний висновок не додавався до числового агрегату.
-
-## Практичне рішення
-
-Для coding GPT-OSS і 27B дали 8/9 правильних задач першою спробою; GPT-OSS швидший і краще дотримувався формату. Для структурованих HA-відповідей 35B і Gemma були сильнішими в цьому наборі, але пояснення все одно потребують перевірених правил значення датчиків. Не варто замінювати модель безумовно: доречні окремі швидкий домашній і coding-профілі, а всі важливі результати коду перевіряти тестами. Налаштування не змінено.
+GPT-OSS and 27B solved 8/9 coding tasks on the first attempt; GPT-OSS was faster and followed formatting instructions better. 35B and Gemma were stronger on structured Home Assistant answers in this suite, but explanations still require verified sensor semantics. These findings support considering separate fast home-agent and coding profiles, not an unconditional model replacement. Test important code outputs. Production settings were unchanged.
