@@ -1,0 +1,7 @@
+{
+  "decode_tokens": 128,
+  "seed": 42,
+  "repeats": 3,
+  "prompt_lines": 96,
+  "timeout_seconds": 180
+}

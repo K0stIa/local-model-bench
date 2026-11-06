@@ -1,0 +1,42 @@
+[
+  {
+    "repo": "LiquidAI/LFM2.5-24B-A2B-GGUF",
+    "revision": "7be3a8c77b010e612c42089d0dc082962cecb3a6",
+    "file": "LFM2.5-24B-A2B-Q4_K_M.gguf",
+    "size": 14526258464,
+    "expected_sha256": "d3334405b96228eb9908cdebb5c6194908f2da64282bda852afc3a3910c64e7d",
+    "download_state": "pending",
+    "local_validation": "not yet verified",
+    "tested": false
+  },
+  {
+    "repo": "unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF",
+    "revision": "6e458b8add42681bfd023de5eab93637694aaf82",
+    "file": "Devstral-Small-2-24B-Instruct-2512-Q4_K_M.gguf",
+    "size": 14334446752,
+    "expected_sha256": "d14ba9edee1bb4c4996a726deb81e49ae81800a3216f0774634238c380aee496",
+    "download_state": "pending",
+    "local_validation": "not yet verified",
+    "tested": false
+  },
+  {
+    "repo": "unsloth/GLM-4.7-Flash-GGUF",
+    "revision": "0d32489ecb9db6d2a4fc93bd27ef01519f95474d",
+    "file": "GLM-4.7-Flash-Q4_K_M.gguf",
+    "size": 18312339808,
+    "expected_sha256": "29837ed2c0fc5f51981adf8ac8083fcf80743c598381f13e9f06cbad0498b174",
+    "download_state": "pending",
+    "local_validation": "not yet verified",
+    "tested": false
+  },
+  {
+    "repo": "poolside/Laguna-XS-2.1-GGUF",
+    "revision": "1a37c0a5fb8c7a18e6106decb6be6327d1b63fa6",
+    "file": "Laguna-XS-2.1-Q4_K_M.gguf",
+    "size": 20274300032,
+    "expected_sha256": "1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb",
+    "download_state": "pending",
+    "local_validation": "not yet verified",
+    "tested": false
+  }
+]

@@ -6,7 +6,7 @@
 
 - `custom`: 9 coding-задач (168 крайових cases) + 10 структурованих агентних сценаріїв. Specs походять із тестування 6 листопада 2026; неоднозначну задачу unavailable замінено явним device mapping.
 - `humaneval`: 164 офіційні задачі OpenAI HumanEval (MIT), pinned commit та SHA256 у `data/humaneval/PROVENANCE.json`. `--limit 10 --seed 42` — детермінований smoke subset, **не офіційний HumanEval pass@1**. Ми запитуємо повну функцію через chat, а не raw completion. Повний набір теж є адаптованим протоколом.
-- Збережені історичні 112 запитів і звіт у `results/legacy-20261106`. Вони не проганяються автоматично й мають інші умови. Legacy source збережено як `.py.txt`, не як рекомендований executor.
+- Агрегований історичний звіт у `results/legacy-20261106/REPORT.md`. Сирі запити, відповіді, tool transcripts і детальні grading JSON залишені локально та не публікуються. Історичний звіт має інші умови, ніж новий harness. Legacy source збережено як `.py.txt`, не як рекомендований executor.
 - Fail-closed `bubblewrap` sandbox для згенерованого коду: окремі PID/network/user namespaces, без домашньої файлової системи, read-only root і системні бібліотеки, 16 MiB tmpfs, обмеження CPU/RAM/output/time/processes. Це defense in depth, не VM і не гарантія проти kernel exploit.
 
 ## Швидкий початок

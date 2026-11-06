@@ -1,0 +1,9 @@
+{
+  "source": "https://github.com/openai/human-eval",
+  "revision": "b9453e8f1865df0a0057a1383767caa400acfbcf",
+  "file": "data/HumanEval.jsonl.gz",
+  "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+  "license": "MIT",
+  "retrieved": "2026-11-06",
+  "protocol": "Full-function chat adaptation; deterministic subset is NOT official full HumanEval score."
+}
