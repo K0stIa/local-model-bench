@@ -77,3 +77,7 @@ Candidate manifests in `manifests/` describe expected upstream hashes and pinned
 [November 7 comparison](results/comparison-20261107/REPORT.md) covers Qwen,
 Devstral, GLM, Laguna and TwIL practical runs, plus a separate TwIL thinking track.
 Only aggregate metrics are included; raw responses and logs remain local.
+
+## Seven installed models
+
+[Complete seven-model comparison](results/seven-models-20261107/REPORT.md) adds Qwen27, both Gemma sizes, MiMo9 and a separately labeled GPT-OSS native reasoning track.
