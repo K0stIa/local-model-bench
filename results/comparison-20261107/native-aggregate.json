@@ -1,0 +1,162 @@
+{
+  "protocol": "separate-native-thinking-track",
+  "model": "twil-native",
+  "metrics": {
+    "coding": {
+      "attempted": 9,
+      "functional": 7,
+      "strict": 7,
+      "truncated": 2,
+      "errors": 0,
+      "execution_timeouts": 0,
+      "wall_seconds": {
+        "n": 9,
+        "min": 46.8744,
+        "median": 115.7081,
+        "max": 301.667
+      },
+      "prefill_tokens_per_second": {
+        "n": 9,
+        "min": 141.22053650768132,
+        "median": 195.1336665615947,
+        "max": 220.75188090636706
+      },
+      "decode_tokens_per_second": {
+        "n": 9,
+        "min": 13.612253312313312,
+        "median": 14.213511655917436,
+        "max": 14.411379726697582
+      },
+      "prompt_tokens": {
+        "n": 9,
+        "min": 127,
+        "median": 139,
+        "max": 167
+      },
+      "completion_tokens": {
+        "n": 9,
+        "min": 668,
+        "median": 1638,
+        "max": 4096
+      }
+    },
+    "agents": {
+      "attempted": 10,
+      "functional": 8,
+      "strict": 8,
+      "truncated": 0,
+      "errors": 0,
+      "execution_timeouts": 0,
+      "wall_seconds": {
+        "n": 10,
+        "min": 5.5364,
+        "median": 16.59685,
+        "max": 73.134
+      },
+      "prefill_tokens_per_second": {
+        "n": 10,
+        "min": 75.95285226695529,
+        "median": 205.81965114181267,
+        "max": 272.2184949961096
+      },
+      "decode_tokens_per_second": {
+        "n": 10,
+        "min": 13.378538953333361,
+        "median": 14.402195030974543,
+        "max": 14.486085464169543
+      },
+      "prompt_tokens": {
+        "n": 10,
+        "min": 128,
+        "median": 413.5,
+        "max": 2465
+      },
+      "completion_tokens": {
+        "n": 10,
+        "min": 76,
+        "median": 232.5,
+        "max": 929
+      }
+    },
+    "humaneval": {
+      "attempted": 10,
+      "functional": 10,
+      "strict": 10,
+      "truncated": 0,
+      "errors": 0,
+      "execution_timeouts": 0,
+      "wall_seconds": {
+        "n": 10,
+        "min": 26.7852,
+        "median": 102.6314,
+        "max": 245.4557
+      },
+      "prefill_tokens_per_second": {
+        "n": 10,
+        "min": 165.9008415697236,
+        "median": 192.63204725288153,
+        "max": 250.77544469539404
+      },
+      "decode_tokens_per_second": {
+        "n": 10,
+        "min": 13.811711148594899,
+        "median": 14.182730074771879,
+        "max": 14.447131516227614
+      },
+      "prompt_tokens": {
+        "n": 10,
+        "min": 123,
+        "median": 204.5,
+        "max": 360
+      },
+      "completion_tokens": {
+        "n": 10,
+        "min": 374,
+        "median": 1439.5,
+        "max": 3379
+      }
+    }
+  },
+  "profile": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "seed": 42,
+    "max_tokens": 4096,
+    "chat_template_kwargs": {
+      "enable_thinking": true
+    }
+  },
+  "source_sha256": "5e45246a1385a71615e94d6b20d344957aaf3476e3906fde95534c25c8571d6d",
+  "task_ids": [
+    "HumanEval/108",
+    "HumanEval/136",
+    "HumanEval/153",
+    "HumanEval/158",
+    "HumanEval/30",
+    "HumanEval/45",
+    "HumanEval/46",
+    "HumanEval/69",
+    "HumanEval/75",
+    "HumanEval/82",
+    "agent_call_history",
+    "agent_call_live",
+    "agent_error_correction",
+    "agent_inject_tool",
+    "agent_inject_user",
+    "agent_long_context",
+    "agent_refuse_write",
+    "agent_tool_timeout",
+    "agent_unavailable_v2",
+    "agent_units",
+    "code_energy",
+    "code_lru",
+    "code_merge",
+    "code_nearest",
+    "code_patch",
+    "code_repo_counter",
+    "code_repo_ttl",
+    "code_rolling",
+    "code_topo"
+  ],
+  "limitation": "Temperature 1.0, top_p 0.95 and 4096 output tokens: not equal compute or sampling to practical track."
+}

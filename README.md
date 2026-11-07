@@ -71,3 +71,9 @@ Candidate manifests in `manifests/` describe expected upstream hashes and pinned
 ## Separate performance profile
 
 `profiles/performance.json` and `python3 -m bench.performance` measure native llama.cpp prefill/decode, warm/cache phases and sampled memory. See [docs/PERFORMANCE.md](docs/PERFORMANCE.md) for the MTP/context/build matrix, cold/warm definitions and mandatory correctness checks. The runner does not change production services.
+
+## Matched English model comparison
+
+[November 7 comparison](results/comparison-20261107/REPORT.md) covers Qwen,
+Devstral, GLM, Laguna and TwIL practical runs, plus a separate TwIL thinking track.
+Only aggregate metrics are included; raw responses and logs remain local.

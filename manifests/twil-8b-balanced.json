@@ -1,0 +1,14 @@
+{
+  "repo": "webAI-Official/TwIL-8B",
+  "revision": "58d49f0d9909e62f9c2fb09e99fc5c76f3f2d630",
+  "file": "TwIL-8B-Q4_K_M-balanced.gguf",
+  "size": 5347917568,
+  "expected_sha256": "17bda82d2608ca61b6aca48394f212349ef1515d0d9a2e6edee06619152faa0e",
+  "download_state": "completed",
+  "local_validation": "size and SHA256 verified",
+  "tested": true,
+  "license_note": "Non-commercial research license; review upstream license before use or redistribution. No weights included.",
+  "source": "https://huggingface.co/webAI-Official/TwIL-8B/tree/58d49f0d9909e62f9c2fb09e99fc5c76f3f2d630",
+  "metadata_source": "Pinned upstream metadata and local verified file record; aggregate evaluation in results/comparison-20261107.",
+  "validation_date": "2026-11-07"
+}
