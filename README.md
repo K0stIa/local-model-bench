@@ -81,3 +81,7 @@ Only aggregate metrics are included; raw responses and logs remain local.
 ## Seven installed models
 
 [Complete seven-model comparison](results/seven-models-20261107/REPORT.md) adds Qwen27, both Gemma sizes, MiMo9 and a separately labeled GPT-OSS native reasoning track.
+
+## Expanded six-model results
+
+[Audited six-model report](results/public-20261107/REPORT.md) covers HumanEval+164, BFCL100 and assist-mini32, including resumed Qwen27 and completed Gemma12 results. This report-only update includes aggregates and protocol/provenance documentation; the expanded executable harness and fixture files remain local.

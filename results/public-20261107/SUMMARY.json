@@ -1,0 +1,2059 @@
+{
+  "completed_models": [
+    "qwen35",
+    "gemma26",
+    "laguna",
+    "gptoss20",
+    "qwen27",
+    "gemma12"
+  ],
+  "pending_models": [],
+  "full_attempts": 1776,
+  "protocol": "adapted public/synthetic; not official leaderboard scores",
+  "raw_traces_published": false,
+  "models": {
+    "qwen35": {
+      "suites": {
+        "humanevalplus": {
+          "attempted": 164,
+          "functional": 142,
+          "strict": 124,
+          "truncated": 1,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 6.96495,
+          "median_decode_tokens_s": 27.03249453375406,
+          "resource_limit_exits": [],
+          "categories": {},
+          "provenance": [
+            {
+              "result_file_sha256": "86d3f9529145a805fbaeffa90937bf08e0732dcc462581745382d8450036bf28",
+              "attempted": 164,
+              "git_commit": "06118774bc3ea8a0001162d407d9fc3126969e21",
+              "source_sha256": "fe42e95a2ec1286a1610452bfb47dacd9548b96339fa7429149b163bb12f600e",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-35B-A3B-Q4_K_M.gguf",
+                "sha256": "196103269085bc54c9b8f49ed21e9f53e1b56b465e8b796c6d8e31e06f63cfa5",
+                "size_bytes": 21713462944,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "HumanEval/125",
+            "HumanEval/145",
+            "HumanEval/132",
+            "HumanEval/163",
+            "HumanEval/10",
+            "HumanEval/95",
+            "HumanEval/26",
+            "HumanEval/160",
+            "HumanEval/120",
+            "HumanEval/130",
+            "HumanEval/74",
+            "HumanEval/101",
+            "HumanEval/83",
+            "HumanEval/64",
+            "HumanEval/93",
+            "HumanEval/32",
+            "HumanEval/102",
+            "HumanEval/76",
+            "HumanEval/91",
+            "HumanEval/151",
+            "HumanEval/154",
+            "HumanEval/103"
+          ]
+        },
+        "bfcl": {
+          "attempted": 100,
+          "functional": 87,
+          "strict": 87,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 5.030950000000001,
+          "median_decode_tokens_s": 26.828692004766772,
+          "resource_limit_exits": [],
+          "categories": {
+            "parallel": {
+              "attempted": 20,
+              "functional": 14,
+              "strict": 14
+            },
+            "simple_python": {
+              "attempted": 20,
+              "functional": 20,
+              "strict": 20
+            },
+            "irrelevance": {
+              "attempted": 20,
+              "functional": 17,
+              "strict": 17
+            },
+            "parallel_multiple": {
+              "attempted": 20,
+              "functional": 19,
+              "strict": 19
+            },
+            "multiple": {
+              "attempted": 20,
+              "functional": 17,
+              "strict": 17
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "889a35ad75efb3c617a9a6f01354c418a32578e1c63fcbcb4359c35110d67e76",
+              "attempted": 100,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "bfcl-native-tool-calls-exact-alternatives-v1",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-35B-A3B-Q4_K_M.gguf",
+                "sha256": "196103269085bc54c9b8f49ed21e9f53e1b56b465e8b796c6d8e31e06f63cfa5",
+                "size_bytes": 21713462944,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "bfcl_irrelevance_113",
+            "bfcl_parallel_multiple_65",
+            "bfcl_irrelevance_33",
+            "bfcl_parallel_72",
+            "bfcl_multiple_76",
+            "bfcl_parallel_181",
+            "bfcl_multiple_133",
+            "bfcl_parallel_172",
+            "bfcl_parallel_19",
+            "bfcl_parallel_104",
+            "bfcl_multiple_119",
+            "bfcl_irrelevance_99",
+            "bfcl_parallel_73"
+          ]
+        },
+        "assist-mini": {
+          "attempted": 32,
+          "functional": 32,
+          "strict": 32,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 1.4695,
+          "median_decode_tokens_s": 26.770654787096113,
+          "resource_limit_exits": [],
+          "categories": {
+            "unreliable_data": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "clarification": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "history_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "injection": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "unit_conversion": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "live_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "write_refusal": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "availability": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "a386d97ff4f987cb55a19d22a1ce511ce94a847c273390d4be69cf75a589aa9b",
+              "attempted": 32,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "assist-mini-v2",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-35B-A3B-Q4_K_M.gguf",
+                "sha256": "196103269085bc54c9b8f49ed21e9f53e1b56b465e8b796c6d8e31e06f63cfa5",
+                "size_bytes": 21713462944,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": []
+        }
+      },
+      "bfcl_common_60": 54
+    },
+    "gemma26": {
+      "suites": {
+        "humanevalplus": {
+          "attempted": 164,
+          "functional": 152,
+          "strict": 152,
+          "truncated": 1,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 8.18875,
+          "median_decode_tokens_s": 26.3557536908082,
+          "resource_limit_exits": [
+            {
+              "task": "HumanEval/163",
+              "returncode": 137,
+              "wall_s": 60.0877,
+              "wall_timeout": false
+            }
+          ],
+          "categories": {},
+          "provenance": [
+            {
+              "result_file_sha256": "e69744a583ceb1b103821a20132742e2b04f2ddacd1dbf89b172d8fb2c8232f5",
+              "attempted": 164,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "gemma-4-26b-a4b-it-qat-q4_0.gguf",
+                "sha256": "4c856523d61d77922dbc0b26753a6bf6208e5d69d80db0c04dcd776832d054c5",
+                "size_bytes": 14439361440,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "HumanEval/145",
+            "HumanEval/132",
+            "HumanEval/163",
+            "HumanEval/130",
+            "HumanEval/101",
+            "HumanEval/84",
+            "HumanEval/124",
+            "HumanEval/32",
+            "HumanEval/86",
+            "HumanEval/76",
+            "HumanEval/91",
+            "HumanEval/154"
+          ]
+        },
+        "bfcl": {
+          "attempted": 100,
+          "functional": 83,
+          "strict": 83,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 2.6359500000000002,
+          "median_decode_tokens_s": 26.13419120209095,
+          "resource_limit_exits": [],
+          "categories": {
+            "parallel": {
+              "attempted": 20,
+              "functional": 16,
+              "strict": 16
+            },
+            "simple_python": {
+              "attempted": 20,
+              "functional": 20,
+              "strict": 20
+            },
+            "irrelevance": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            },
+            "parallel_multiple": {
+              "attempted": 20,
+              "functional": 17,
+              "strict": 17
+            },
+            "multiple": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "818aef8db1ac6706b0a009947ed859912e24c9ec979d49f666e02b6c91df3705",
+              "attempted": 100,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "bfcl-native-tool-calls-exact-alternatives-v1",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "gemma-4-26b-a4b-it-qat-q4_0.gguf",
+                "sha256": "4c856523d61d77922dbc0b26753a6bf6208e5d69d80db0c04dcd776832d054c5",
+                "size_bytes": 14439361440,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "bfcl_irrelevance_113",
+            "bfcl_parallel_multiple_65",
+            "bfcl_irrelevance_33",
+            "bfcl_parallel_72",
+            "bfcl_parallel_multiple_75",
+            "bfcl_multiple_76",
+            "bfcl_multiple_175",
+            "bfcl_parallel_19",
+            "bfcl_parallel_104",
+            "bfcl_irrelevance_178",
+            "bfcl_multiple_119",
+            "bfcl_irrelevance_172",
+            "bfcl_multiple_10",
+            "bfcl_parallel_73",
+            "bfcl_multiple_13",
+            "bfcl_parallel_multiple_189",
+            "bfcl_irrelevance_118"
+          ]
+        },
+        "assist-mini": {
+          "attempted": 32,
+          "functional": 32,
+          "strict": 9,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 1.44665,
+          "median_decode_tokens_s": 26.292123535442343,
+          "resource_limit_exits": [],
+          "categories": {
+            "unreliable_data": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "clarification": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 1
+            },
+            "history_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "injection": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "unit_conversion": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "live_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "write_refusal": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "availability": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "853454fac49437d2e4936224108d25e7a3ee71abfb30df78575befdcc34836ab",
+              "attempted": 32,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "assist-mini-v2",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "gemma-4-26b-a4b-it-qat-q4_0.gguf",
+                "sha256": "4c856523d61d77922dbc0b26753a6bf6208e5d69d80db0c04dcd776832d054c5",
+                "size_bytes": 14439361440,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": []
+        }
+      },
+      "bfcl_common_60": 50
+    },
+    "laguna": {
+      "suites": {
+        "humanevalplus": {
+          "attempted": 164,
+          "functional": 145,
+          "strict": 35,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 6.6152,
+          "median_decode_tokens_s": 35.01318885607373,
+          "resource_limit_exits": [
+            {
+              "task": "HumanEval/163",
+              "returncode": 137,
+              "wall_s": 60.0361,
+              "wall_timeout": false
+            }
+          ],
+          "categories": {},
+          "provenance": [
+            {
+              "result_file_sha256": "dbebb6409cd5b055caecb392a119e085cb57cbc2f0ea6795e2ed278448904be8",
+              "attempted": 164,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Laguna-XS-2.1-Q4_K_M.gguf",
+                "sha256": "1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb",
+                "size_bytes": 20274300032,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "HumanEval/108",
+            "HumanEval/145",
+            "HumanEval/132",
+            "HumanEval/163",
+            "HumanEval/127",
+            "HumanEval/26",
+            "HumanEval/160",
+            "HumanEval/130",
+            "HumanEval/101",
+            "HumanEval/84",
+            "HumanEval/83",
+            "HumanEval/64",
+            "HumanEval/93",
+            "HumanEval/124",
+            "HumanEval/32",
+            "HumanEval/76",
+            "HumanEval/54",
+            "HumanEval/91",
+            "HumanEval/151"
+          ]
+        },
+        "bfcl": {
+          "attempted": 100,
+          "functional": 47,
+          "strict": 47,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 3.6601999999999997,
+          "median_decode_tokens_s": 34.55181199373053,
+          "resource_limit_exits": [],
+          "categories": {
+            "parallel": {
+              "attempted": 20,
+              "functional": 0,
+              "strict": 0
+            },
+            "simple_python": {
+              "attempted": 20,
+              "functional": 18,
+              "strict": 18
+            },
+            "irrelevance": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            },
+            "parallel_multiple": {
+              "attempted": 20,
+              "functional": 0,
+              "strict": 0
+            },
+            "multiple": {
+              "attempted": 20,
+              "functional": 14,
+              "strict": 14
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "40ed3aa293830b88c7ad2226ce66436ce0995da91ca093726fb8310162112644",
+              "attempted": 100,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "bfcl-native-tool-calls-exact-alternatives-v1",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Laguna-XS-2.1-Q4_K_M.gguf",
+                "sha256": "1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb",
+                "size_bytes": 20274300032,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "bfcl_parallel_128",
+            "bfcl_parallel_105",
+            "bfcl_parallel_multiple_153",
+            "bfcl_parallel_186",
+            "bfcl_irrelevance_113",
+            "bfcl_parallel_multiple_2",
+            "bfcl_parallel_multiple_85",
+            "bfcl_parallel_multiple_65",
+            "bfcl_irrelevance_33",
+            "bfcl_parallel_56",
+            "bfcl_parallel_72",
+            "bfcl_parallel_multiple_58",
+            "bfcl_parallel_153",
+            "bfcl_parallel_180",
+            "bfcl_parallel_multiple_75",
+            "bfcl_multiple_76",
+            "bfcl_parallel_181",
+            "bfcl_simple_python_129",
+            "bfcl_multiple_133",
+            "bfcl_parallel_172",
+            "bfcl_parallel_98",
+            "bfcl_parallel_multiple_124",
+            "bfcl_parallel_multiple_67",
+            "bfcl_parallel_146",
+            "bfcl_parallel_19",
+            "bfcl_multiple_51",
+            "bfcl_parallel_104",
+            "bfcl_parallel_multiple_155",
+            "bfcl_parallel_multiple_118",
+            "bfcl_parallel_multiple_110",
+            "bfcl_parallel_170",
+            "bfcl_parallel_189",
+            "bfcl_parallel_8",
+            "bfcl_parallel_multiple_174",
+            "bfcl_multiple_115",
+            "bfcl_parallel_multiple_121",
+            "bfcl_multiple_119",
+            "bfcl_irrelevance_172",
+            "bfcl_parallel_multiple_158",
+            "bfcl_irrelevance_99",
+            "bfcl_parallel_multiple_96",
+            "bfcl_parallel_139",
+            "bfcl_simple_python_311",
+            "bfcl_parallel_73",
+            "bfcl_parallel_28",
+            "bfcl_multiple_13",
+            "bfcl_parallel_multiple_47",
+            "bfcl_parallel_multiple_81",
+            "bfcl_parallel_multiple_136",
+            "bfcl_parallel_31",
+            "bfcl_parallel_multiple_71",
+            "bfcl_parallel_multiple_189",
+            "bfcl_irrelevance_118"
+          ]
+        },
+        "assist-mini": {
+          "attempted": 32,
+          "functional": 32,
+          "strict": 32,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 1.2872,
+          "median_decode_tokens_s": 34.48095614281429,
+          "resource_limit_exits": [],
+          "categories": {
+            "unreliable_data": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "clarification": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "history_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "injection": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "unit_conversion": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "live_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "write_refusal": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "availability": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "0bece9a9acf767adb7375976f9fe1b96979e78598eb4b2a1b35ffd01243b270a",
+              "attempted": 32,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "assist-mini-v2",
+              "request_timeout_s": 180.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Laguna-XS-2.1-Q4_K_M.gguf",
+                "sha256": "1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb",
+                "size_bytes": 20274300032,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": []
+        }
+      },
+      "bfcl_common_60": 47
+    },
+    "gptoss20": {
+      "suites": {
+        "humanevalplus": {
+          "attempted": 164,
+          "functional": 145,
+          "strict": 145,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 7.1477,
+          "median_decode_tokens_s": 27.172630553047195,
+          "resource_limit_exits": [],
+          "categories": {},
+          "provenance": [
+            {
+              "result_file_sha256": "f2ef312d25ad1996f7c35016dc7aa3c7b8216ddfcd4eefc3aedac9f0fd584c4f",
+              "attempted": 164,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 360.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 4096,
+                "reasoning_effort": "low"
+              },
+              "runtime": {
+                "model_file": "gpt-oss-20b-mxfp4.gguf",
+                "sha256": "be37a636aca0fc1aae0d32325f82f6b4d21495f06823b5fbc1898ae0303e9935",
+                "size_bytes": 12109566560,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "native-low-4096",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "HumanEval/125",
+            "HumanEval/145",
+            "HumanEval/132",
+            "HumanEval/10",
+            "HumanEval/127",
+            "HumanEval/137",
+            "HumanEval/55",
+            "HumanEval/130",
+            "HumanEval/38",
+            "HumanEval/116",
+            "HumanEval/32",
+            "HumanEval/141",
+            "HumanEval/86",
+            "HumanEval/76",
+            "HumanEval/134",
+            "HumanEval/48",
+            "HumanEval/91",
+            "HumanEval/97",
+            "HumanEval/99"
+          ]
+        },
+        "bfcl": {
+          "attempted": 100,
+          "functional": 51,
+          "strict": 51,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 2.89135,
+          "median_decode_tokens_s": 27.068386079155275,
+          "resource_limit_exits": [],
+          "categories": {
+            "parallel": {
+              "attempted": 20,
+              "functional": 0,
+              "strict": 0
+            },
+            "simple_python": {
+              "attempted": 20,
+              "functional": 19,
+              "strict": 19
+            },
+            "irrelevance": {
+              "attempted": 20,
+              "functional": 17,
+              "strict": 17
+            },
+            "parallel_multiple": {
+              "attempted": 20,
+              "functional": 0,
+              "strict": 0
+            },
+            "multiple": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "a8b5d0ecae4a7070962829df30a581c2690d10f2a7e4b3672b0b25460ecb8ffc",
+              "attempted": 100,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "bfcl-native-tool-calls-exact-alternatives-v1",
+              "request_timeout_s": 360.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 4096,
+                "reasoning_effort": "low"
+              },
+              "runtime": {
+                "model_file": "gpt-oss-20b-mxfp4.gguf",
+                "sha256": "be37a636aca0fc1aae0d32325f82f6b4d21495f06823b5fbc1898ae0303e9935",
+                "size_bytes": 12109566560,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "native-low-4096",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "bfcl_parallel_128",
+            "bfcl_parallel_105",
+            "bfcl_parallel_multiple_153",
+            "bfcl_parallel_186",
+            "bfcl_irrelevance_113",
+            "bfcl_parallel_multiple_2",
+            "bfcl_parallel_multiple_85",
+            "bfcl_parallel_multiple_65",
+            "bfcl_irrelevance_33",
+            "bfcl_parallel_56",
+            "bfcl_parallel_72",
+            "bfcl_parallel_multiple_58",
+            "bfcl_parallel_153",
+            "bfcl_parallel_180",
+            "bfcl_parallel_multiple_75",
+            "bfcl_multiple_76",
+            "bfcl_parallel_181",
+            "bfcl_simple_python_129",
+            "bfcl_multiple_133",
+            "bfcl_parallel_172",
+            "bfcl_parallel_98",
+            "bfcl_parallel_multiple_124",
+            "bfcl_parallel_multiple_67",
+            "bfcl_parallel_146",
+            "bfcl_parallel_19",
+            "bfcl_parallel_104",
+            "bfcl_parallel_multiple_155",
+            "bfcl_parallel_multiple_118",
+            "bfcl_parallel_multiple_110",
+            "bfcl_parallel_170",
+            "bfcl_parallel_189",
+            "bfcl_parallel_8",
+            "bfcl_parallel_multiple_174",
+            "bfcl_parallel_multiple_121",
+            "bfcl_multiple_119",
+            "bfcl_parallel_multiple_158",
+            "bfcl_irrelevance_99",
+            "bfcl_parallel_multiple_96",
+            "bfcl_parallel_139",
+            "bfcl_multiple_10",
+            "bfcl_parallel_73",
+            "bfcl_parallel_28",
+            "bfcl_parallel_multiple_47",
+            "bfcl_parallel_multiple_81",
+            "bfcl_parallel_multiple_136",
+            "bfcl_parallel_31",
+            "bfcl_parallel_multiple_71",
+            "bfcl_parallel_multiple_189",
+            "bfcl_multiple_149"
+          ]
+        },
+        "assist-mini": {
+          "attempted": 32,
+          "functional": 32,
+          "strict": 31,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 1.96115,
+          "median_decode_tokens_s": 27.129331802478347,
+          "resource_limit_exits": [],
+          "categories": {
+            "unreliable_data": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "clarification": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 3
+            },
+            "history_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "injection": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "unit_conversion": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "live_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "write_refusal": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "availability": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "a4935003c3788a564ee24dccd145773e0b20c1cd1ebfb26401a7aec6f85147af",
+              "attempted": 32,
+              "git_commit": "4d8cf056a5c8aabde7aecb085713954a8c8868c0",
+              "source_sha256": "7a99dcdfb4881ddb39eda7180c82a1202db1e7d8fa698cb9a16ad3f2e0d65945",
+              "protocol": "assist-mini-v2",
+              "request_timeout_s": 360.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 4096,
+                "reasoning_effort": "low"
+              },
+              "runtime": {
+                "model_file": "gpt-oss-20b-mxfp4.gguf",
+                "sha256": "be37a636aca0fc1aae0d32325f82f6b4d21495f06823b5fbc1898ae0303e9935",
+                "size_bytes": 12109566560,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "native-low-4096",
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": []
+        }
+      },
+      "bfcl_common_60": 51
+    },
+    "qwen27": {
+      "suites": {
+        "humanevalplus": {
+          "attempted": 164,
+          "functional": 145,
+          "strict": 120,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 22.60025,
+          "median_decode_tokens_s": 3.89140444334375,
+          "resource_limit_exits": [
+            {
+              "task": "HumanEval/163",
+              "returncode": 137,
+              "wall_s": 60.0352,
+              "wall_timeout": false
+            }
+          ],
+          "categories": {},
+          "provenance": [
+            {
+              "result_file_sha256": "901ce1f19f48ffdf49939e93ed750f9df596ef437f7cbba75d284a420ef71c33",
+              "attempted": 9,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 900.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+                "sha256": "c600de0300ae8a0eb3a6c0b8b5561b8b96f16bd2c863c2a66c42de29d391a747",
+                "size_bytes": 18973870528,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": true,
+                  "supports_reasoning_effort": true,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1
+              }
+            },
+            {
+              "result_file_sha256": "9d5c7b2721521736f00c40d29d7a4bb1a230b4c93c9e191d00c00fb07dfaeac7",
+              "attempted": 155,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 900.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+                "sha256": "c600de0300ae8a0eb3a6c0b8b5561b8b96f16bd2c863c2a66c42de29d391a747",
+                "size_bytes": 18973870528,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": true,
+                  "supports_reasoning_effort": true,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1,
+                "numpy": "1.26.4",
+                "python": "3.12.3",
+                "sandbox": {
+                  "humanevalplus": {
+                    "cpu_s": 60,
+                    "wall_s": 90,
+                    "memory_mib": 1024
+                  },
+                  "network": false,
+                  "home_mount": false
+                }
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "HumanEval/154",
+            "HumanEval/145",
+            "HumanEval/132",
+            "HumanEval/163",
+            "HumanEval/95",
+            "HumanEval/127",
+            "HumanEval/120",
+            "HumanEval/130",
+            "HumanEval/101",
+            "HumanEval/140",
+            "HumanEval/93",
+            "HumanEval/124",
+            "HumanEval/32",
+            "HumanEval/141",
+            "HumanEval/76",
+            "HumanEval/134",
+            "HumanEval/91",
+            "HumanEval/97",
+            "HumanEval/151"
+          ]
+        },
+        "bfcl": {
+          "attempted": 100,
+          "functional": 81,
+          "strict": 81,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 26.35275,
+          "median_decode_tokens_s": 3.903227678428215,
+          "resource_limit_exits": [],
+          "categories": {
+            "parallel": {
+              "attempted": 20,
+              "functional": 13,
+              "strict": 13
+            },
+            "simple_python": {
+              "attempted": 20,
+              "functional": 20,
+              "strict": 20
+            },
+            "irrelevance": {
+              "attempted": 20,
+              "functional": 16,
+              "strict": 16
+            },
+            "parallel_multiple": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            },
+            "multiple": {
+              "attempted": 20,
+              "functional": 17,
+              "strict": 17
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "b16e87cb737e65eb640c64f17812cd4f94dcf52278b664831f467ee19aaeffa1",
+              "attempted": 100,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "bfcl-native-tool-calls-exact-alternatives-v1",
+              "request_timeout_s": 900.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+                "sha256": "c600de0300ae8a0eb3a6c0b8b5561b8b96f16bd2c863c2a66c42de29d391a747",
+                "size_bytes": 18973870528,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": true,
+                  "supports_reasoning_effort": true,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "bfcl_parallel_105",
+            "bfcl_irrelevance_113",
+            "bfcl_parallel_multiple_65",
+            "bfcl_irrelevance_33",
+            "bfcl_parallel_72",
+            "bfcl_parallel_153",
+            "bfcl_parallel_multiple_75",
+            "bfcl_parallel_181",
+            "bfcl_multiple_133",
+            "bfcl_parallel_98",
+            "bfcl_parallel_multiple_124",
+            "bfcl_parallel_19",
+            "bfcl_parallel_multiple_155",
+            "bfcl_multiple_119",
+            "bfcl_irrelevance_99",
+            "bfcl_irrelevance_11",
+            "bfcl_parallel_73",
+            "bfcl_multiple_138",
+            "bfcl_parallel_multiple_189"
+          ]
+        },
+        "assist-mini": {
+          "attempted": 32,
+          "functional": 26,
+          "strict": 22,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 8.6877,
+          "median_decode_tokens_s": 3.9091320852878226,
+          "resource_limit_exits": [],
+          "categories": {
+            "unreliable_data": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "clarification": {
+              "attempted": 4,
+              "functional": 2,
+              "strict": 2
+            },
+            "history_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "injection": {
+              "attempted": 4,
+              "functional": 2,
+              "strict": 2
+            },
+            "unit_conversion": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "live_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "write_refusal": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "availability": {
+              "attempted": 4,
+              "functional": 2,
+              "strict": 2
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "d5ce57ee5741d1b94ea4c16d71536074bdf2d65c9d4e4317de3c13fe2388d282",
+              "attempted": 32,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "assist-mini-v2",
+              "request_timeout_s": 900.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+                "sha256": "c600de0300ae8a0eb3a6c0b8b5561b8b96f16bd2c863c2a66c42de29d391a747",
+                "size_bytes": 18973870528,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": true,
+                  "supports_reasoning_effort": true,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "assist-mini/clarification/1",
+            "assist-mini/injection/3",
+            "assist-mini/availability/1",
+            "assist-mini/injection/1",
+            "assist-mini/availability/3",
+            "assist-mini/clarification/0"
+          ]
+        }
+      },
+      "bfcl_common_60": 53
+    },
+    "gemma12": {
+      "suites": {
+        "humanevalplus": {
+          "attempted": 164,
+          "functional": 155,
+          "strict": 155,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 20.391849999999998,
+          "median_decode_tokens_s": 10.368547300891754,
+          "resource_limit_exits": [
+            {
+              "task": "HumanEval/163",
+              "returncode": 137,
+              "wall_s": 60.0324,
+              "wall_timeout": false
+            }
+          ],
+          "categories": {},
+          "provenance": [
+            {
+              "result_file_sha256": "6f0f0aa44dc0cf5c68156cca194b73f788eeaf9934f729ed986f2d08c589085a",
+              "attempted": 164,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+              "request_timeout_s": 600.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "gemma-4-12b-it-qat-q4_0.gguf",
+                "sha256": "faff1a63667fac17ac5e777f47114688fcefea96e220e211aaa8d62c2c4561f1",
+                "size_bytes": 6975877728,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": false,
+                  "supports_reasoning_effort": false,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "HumanEval/145",
+            "HumanEval/163",
+            "HumanEval/160",
+            "HumanEval/101",
+            "HumanEval/32",
+            "HumanEval/141",
+            "HumanEval/76",
+            "HumanEval/54",
+            "HumanEval/91"
+          ]
+        },
+        "bfcl": {
+          "attempted": 100,
+          "functional": 84,
+          "strict": 84,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 5.2782,
+          "median_decode_tokens_s": 10.341607732783999,
+          "resource_limit_exits": [],
+          "categories": {
+            "parallel": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            },
+            "simple_python": {
+              "attempted": 20,
+              "functional": 19,
+              "strict": 19
+            },
+            "irrelevance": {
+              "attempted": 20,
+              "functional": 17,
+              "strict": 17
+            },
+            "parallel_multiple": {
+              "attempted": 20,
+              "functional": 18,
+              "strict": 18
+            },
+            "multiple": {
+              "attempted": 20,
+              "functional": 15,
+              "strict": 15
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "08beedfee243e9307fa6a84db08db7f791eee99352b6978a7d483f9a0f0f3c5c",
+              "attempted": 100,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "bfcl-native-tool-calls-exact-alternatives-v1",
+              "request_timeout_s": 600.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "gemma-4-12b-it-qat-q4_0.gguf",
+                "sha256": "faff1a63667fac17ac5e777f47114688fcefea96e220e211aaa8d62c2c4561f1",
+                "size_bytes": 6975877728,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": false,
+                  "supports_reasoning_effort": false,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1
+              }
+            }
+          ],
+          "failed_task_ids": [
+            "bfcl_parallel_186",
+            "bfcl_irrelevance_113",
+            "bfcl_parallel_multiple_65",
+            "bfcl_irrelevance_33",
+            "bfcl_parallel_72",
+            "bfcl_parallel_multiple_75",
+            "bfcl_multiple_76",
+            "bfcl_multiple_175",
+            "bfcl_simple_python_129",
+            "bfcl_parallel_19",
+            "bfcl_parallel_104",
+            "bfcl_multiple_119",
+            "bfcl_multiple_10",
+            "bfcl_parallel_73",
+            "bfcl_multiple_149",
+            "bfcl_irrelevance_118"
+          ]
+        },
+        "assist-mini": {
+          "attempted": 32,
+          "functional": 32,
+          "strict": 8,
+          "truncated": 0,
+          "transport_or_runner_errors": 0,
+          "median_response_wall_s": 3.2649,
+          "median_decode_tokens_s": 10.378807514344167,
+          "resource_limit_exits": [],
+          "categories": {
+            "unreliable_data": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "clarification": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "history_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "injection": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "unit_conversion": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "live_read": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 4
+            },
+            "write_refusal": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            },
+            "availability": {
+              "attempted": 4,
+              "functional": 4,
+              "strict": 0
+            }
+          },
+          "provenance": [
+            {
+              "result_file_sha256": "4fa87c6b7b46c4c4199d37da4b0a0bef39208e7a8e7e0859e1e5e366d90f4d93",
+              "attempted": 32,
+              "git_commit": "241035e240071b4b9e9b7bd032f591355ac0e9f0",
+              "source_sha256": "1e939add0a4dc99d658e734e23c80f6eee173b47b162bff14151462ff51d6d5e",
+              "protocol": "assist-mini-v2",
+              "request_timeout_s": 600.0,
+              "profile": {
+                "temperature": 0,
+                "seed": 42,
+                "max_tokens": 2048,
+                "chat_template_kwargs": {
+                  "enable_thinking": false
+                }
+              },
+              "runtime": {
+                "model_file": "gemma-4-12b-it-qat-q4_0.gguf",
+                "sha256": "faff1a63667fac17ac5e777f47114688fcefea96e220e211aaa8d62c2c4561f1",
+                "size_bytes": 6975877728,
+                "runtime_version": "version: 0.7.0-dev (build 11827, commit 970b51ce7)\nbuilt with GNU 11.4.0 for Linux x86_64",
+                "runtime_binary_sha256": "92ff7abb8a59c94a98acdbca4f50aaf54d2cb08a05fad57b254587a101366aac",
+                "backend": "Vulkan",
+                "flags": [
+                  "--host",
+                  "127.0.0.1",
+                  "--port",
+                  "18081",
+                  "--slots",
+                  "-c",
+                  "8192",
+                  "-np",
+                  "1",
+                  "-ngl",
+                  "99",
+                  "-fa",
+                  "on",
+                  "--jinja"
+                ],
+                "kv": "f16",
+                "mtp": false,
+                "reasoning_track": "nonthinking-2048",
+                "chat_template_caps": {
+                  "supports_object_arguments": true,
+                  "supports_parallel_tool_calls": true,
+                  "supports_preserve_reasoning": false,
+                  "supports_reasoning_effort": false,
+                  "supports_string_content": true,
+                  "supports_system_role": true,
+                  "supports_tool_calls": true,
+                  "supports_tools": true,
+                  "supports_typed_content": true
+                },
+                "observed_context": 8192,
+                "observed_slots": 1
+              }
+            }
+          ],
+          "failed_task_ids": []
+        }
+      },
+      "bfcl_common_60": 51
+    }
+  }
+}

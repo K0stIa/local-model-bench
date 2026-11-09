@@ -1,0 +1,20 @@
+{
+  "dataset": "HumanEvalPlus",
+  "version": "v0.1.10",
+  "format": "full canonical input format, not Mini or NoExtreme",
+  "source": "https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus.jsonl.gz",
+  "sha256": "272720b90ac375502c8ed23cd791c2a93dfb22a911641a494da74a426c09f101",
+  "tasks": 164,
+  "license_source": "https://github.com/evalplus/evalplus/blob/v0.3.1/LICENSE",
+  "license_sha256": "fcc1f77fe5443b21bfc4dfcc3d66f7654f599b91582df771850e5e876986a103",
+  "upstream_evaluator_reference": "v0.3.1",
+  "protocol": "humanevalplus-full-inputs-chat-differential-v1",
+  "input_cases": 124253,
+  "limits": {
+    "cpu_seconds": 60,
+    "wall_seconds": 90,
+    "address_space_mib": 1024
+  },
+  "note": "OriginFmt export rejected: missing input cases and malformed task-32 assertion. Full input format used with EvalPlus v0.3.1 differential and special polynomial residual semantics, fixed per-task timing.",
+  "validation_note": "Upstream canonical find_zero fails its own residual oracle on 7 of 888 inputs; the grader retains the correct official special oracle. No test cases removed."
+}
