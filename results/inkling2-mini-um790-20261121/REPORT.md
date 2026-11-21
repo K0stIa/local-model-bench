@@ -48,3 +48,6 @@ Each cell: functional / strict, wall time.
 Few deterministic tasks, not a capability ranking. HumanEval here is an adapted three-task smoke, not official full-suite pass@1. The primary pair differs in runtime, FlashAttention, MTP, quant and tokenizer; it is a usable configuration comparison, not intrinsic architecture speed. The short control aligns runtime, backend, FA and MTP, not quant/tokenizer or long-context performance.
 
 [Primary measurements](primary.json) · [Short control](short-control.json) · [Separate extension](inkling-extension.json)
+
+
+[Stronger community-benchmark pilot](STRONG-PILOT.md): paired HumanEval+ and BFCL results, with the original results preserved.
