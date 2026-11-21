@@ -1,0 +1,117 @@
+{
+  "state": "measured",
+  "scope": "After primary run, separate extra-budget native-default quality extension; not used to rewrite original benchmark rows.",
+  "limits": {
+    "code_topo_request_s": 220,
+    "code_topo_suite_budget_s": 240,
+    "humaneval_request_s": 220,
+    "humaneval_suite_budget_s": 540
+  },
+  "runtime": {
+    "harness_head": "33b236cbf1dc58448a2f163c8590c77148e2e994",
+    "model": "Inkling-2-Mini-IQ4_NL.gguf",
+    "model_sha256": "cbdf3fa9dc50a4124977980f37da4f1fa764b0cfe800d275cd43d26ce2a81af4",
+    "model_bytes": 17627940768,
+    "model_revision": "db61c5b492a6a034d986328d28274af0a439aa6c",
+    "model_provenance": "ggml-org/Inkling-2-Mini-GGUF IQ4_NL",
+    "runtime_version": "version: 1.0.0-dev (build 12606, commit e412c6f46)\nbuilt with GNU 11.4.0 for Linux x86_64",
+    "runtime_executable_sha256": "e95c6fa1c4046977a9208caec6f6765af801272892d98d8c432027db61683624",
+    "backend": "Vulkan AMD Radeon 780M",
+    "runtime_argv": [
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "19092",
+      "--alias",
+      "inkling2mini-iq4nl",
+      "--slots",
+      "--parallel",
+      "1",
+      "--ctx-size",
+      "8192",
+      "--device",
+      "Vulkan0",
+      "--gpu-layers",
+      "99",
+      "--threads",
+      "6",
+      "--threads-batch",
+      "6",
+      "--batch-size",
+      "192",
+      "--ubatch-size",
+      "48",
+      "--cache-type-k",
+      "f16",
+      "--cache-type-v",
+      "f16",
+      "--flash-attn",
+      "off",
+      "--no-warmup",
+      "--model",
+      "Inkling-2-Mini-IQ4_NL.gguf"
+    ],
+    "hardware": "UM790 Pro Ryzen 9 7940HS / Radeon 780M / 64 GB shared system",
+    "mtp": {
+      "enabled": false,
+      "draft_sha256": null,
+      "draft_decode_tokens": null
+    },
+    "provenance_note": "Product configurations differ in runtime, Flash Attention, and speculative decoding; this is not a controlled architecture-only comparison.",
+    "run_annotation": "After primary run, separate extra-budget native-default quality extension; not used to rewrite original benchmark rows."
+  },
+  "quality": {
+    "custom": {
+      "selected": [
+        "code_topo"
+      ],
+      "rows": [
+        {
+          "task": "code_topo",
+          "wall_s": 149.9633,
+          "finish_reason": "length",
+          "functional": false,
+          "strict": false,
+          "error": null
+        }
+      ],
+      "stop": null
+    },
+    "humaneval": {
+      "selected": [
+        "HumanEval/153",
+        "HumanEval/45",
+        "HumanEval/46"
+      ],
+      "rows": [
+        {
+          "task": "HumanEval/153",
+          "wall_s": 127.6109,
+          "finish_reason": "stop",
+          "functional": true,
+          "strict": true,
+          "error": null
+        },
+        {
+          "task": "HumanEval/45",
+          "wall_s": 29.4212,
+          "finish_reason": "stop",
+          "functional": true,
+          "strict": true,
+          "error": null
+        },
+        {
+          "task": "HumanEval/46",
+          "wall_s": 142.9673,
+          "finish_reason": "stop",
+          "functional": true,
+          "strict": true,
+          "error": null
+        }
+      ],
+      "stop": null
+    }
+  },
+  "load_to_ready_s": 4.909655627910979,
+  "safety_guard": []
+}

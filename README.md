@@ -85,3 +85,7 @@ Only aggregate metrics are included; raw responses and logs remain local.
 ## Expanded six-model results
 
 [Audited six-model report](results/public-20261107/REPORT.md) covers HumanEval+164, BFCL100 and assist-mini32, including resumed Qwen27 and completed Gemma12 results. This report-only update includes aggregates and protocol/provenance documentation; the expanded executable harness and fixture files remain local.
+
+## Inkling 2 Mini on UM790 Pro
+
+[Inkling 2 Mini vs local Qwen MTP](results/inkling2-mini-um790-20261121/REPORT.md) adds a paired Vulkan comparison, a short same-runtime control and separately labeled quality extension.

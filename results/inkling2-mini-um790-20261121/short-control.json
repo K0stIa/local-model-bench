@@ -1,0 +1,230 @@
+{
+  "state": "measured",
+  "comparison_scope": "Short same-runtime/FA-off/MTP-off Qwen control; quant and architectures differ. No quality suite or long context control.",
+  "runtime": {
+    "harness_head": "33b236cbf1dc58448a2f163c8590c77148e2e994",
+    "model": "Qwen3.8-35B-A3B-Q4_K_M.gguf",
+    "model_sha256": "196103269085bc54c9b8f49ed21e9f53e1b56b465e8b796c6d8e31e06f63cfa5",
+    "model_bytes": 21713462944,
+    "model_provenance": "Local alias Qwen3.8; GGUF base_model Qwen/Qwen3.6-35B-A3B; qwen35moe",
+    "runtime_version": "version: 1.0.0-dev (build 12606, commit e412c6f46)\nbuilt with GNU 11.4.0 for Linux x86_64",
+    "runtime_executable_sha256": "e95c6fa1c4046977a9208caec6f6765af801272892d98d8c432027db61683624",
+    "runtime_argv": [
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "19091",
+      "--alias",
+      "qwen-b12606-fa-off-mtp-off",
+      "--slots",
+      "--parallel",
+      "1",
+      "--ctx-size",
+      "8192",
+      "--device",
+      "Vulkan0",
+      "--gpu-layers",
+      "99",
+      "--threads",
+      "6",
+      "--threads-batch",
+      "6",
+      "--batch-size",
+      "192",
+      "--ubatch-size",
+      "48",
+      "--cache-type-k",
+      "f16",
+      "--cache-type-v",
+      "f16",
+      "--flash-attn",
+      "off",
+      "--no-warmup",
+      "--spec-type",
+      "none",
+      "--model",
+      "Qwen3.8-35B-A3B-Q4_K_M.gguf"
+    ],
+    "backend": "Vulkan AMD Radeon 780M",
+    "hardware": "UM790 Pro Ryzen 9 7940HS / Radeon 780M / 64 GB shared system",
+    "mtp": {
+      "enabled": false
+    },
+    "note": "Single same-build no-MTP/Flash-Attention control, separate from practical Qwen MTP configuration."
+  },
+  "load_to_ready_s": 14.723832932999358,
+  "tokenizer_n": 434,
+  "performance": {
+    "measurements": 7,
+    "raw": [
+      {
+        "phase": "first_request",
+        "index": 0,
+        "wall_seconds": 8.15045374399051,
+        "timings": {
+          "prompt_n": 434,
+          "prompt_ms": 3612.123,
+          "prompt_per_second": 120.15094724072242,
+          "predicted_n": 128,
+          "predicted_ms": 4536.803,
+          "predicted_per_second": 27.993280730946438,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      },
+      {
+        "phase": "warm_no_cache",
+        "index": 1,
+        "wall_seconds": 7.85850976605434,
+        "timings": {
+          "prompt_n": 434,
+          "prompt_ms": 3338.297,
+          "prompt_per_second": 130.0064074586533,
+          "predicted_n": 128,
+          "predicted_ms": 4518.894,
+          "predicted_per_second": 28.104221962276608,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      },
+      {
+        "phase": "warm_no_cache",
+        "index": 2,
+        "wall_seconds": 7.868936697952449,
+        "timings": {
+          "prompt_n": 434,
+          "prompt_ms": 3344.168,
+          "prompt_per_second": 129.77816903935448,
+          "predicted_n": 128,
+          "predicted_ms": 4523.451,
+          "predicted_per_second": 28.075909300222328,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      },
+      {
+        "phase": "warm_no_cache",
+        "index": 3,
+        "wall_seconds": 7.867341315024532,
+        "timings": {
+          "prompt_n": 434,
+          "prompt_ms": 3341.972,
+          "prompt_per_second": 129.86344589362207,
+          "predicted_n": 128,
+          "predicted_ms": 4523.914,
+          "predicted_per_second": 28.073035871150513,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      },
+      {
+        "phase": "prefix_cache",
+        "index": 4,
+        "wall_seconds": 4.6339954329887405,
+        "timings": {
+          "prompt_n": 4,
+          "prompt_ms": 104.464,
+          "prompt_per_second": 38.2907030173074,
+          "predicted_n": 128,
+          "predicted_ms": 4527.933,
+          "predicted_per_second": 28.04811820316246,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      },
+      {
+        "phase": "prefix_cache",
+        "index": 5,
+        "wall_seconds": 4.62071283091791,
+        "timings": {
+          "prompt_n": 4,
+          "prompt_ms": 102.483,
+          "prompt_per_second": 39.03086365543553,
+          "predicted_n": 128,
+          "predicted_ms": 4516.232,
+          "predicted_per_second": 28.12078741747545,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      },
+      {
+        "phase": "prefix_cache",
+        "index": 6,
+        "wall_seconds": 4.649529560934752,
+        "timings": {
+          "prompt_n": 4,
+          "prompt_ms": 105.999,
+          "prompt_per_second": 37.73620505853829,
+          "predicted_n": 128,
+          "predicted_ms": 4541.56,
+          "predicted_per_second": 27.96395952051718,
+          "draft_n": null,
+          "draft_n_accepted": null
+        },
+        "output_sha256": "491221237b3cd4024b711a4d711558ef46b3f59011b97f5bc9c066f0eeb34233",
+        "truncated": false
+      }
+    ],
+    "warm_decode_tps": {
+      "median": 28.075909300222328,
+      "min": 28.073035871150513,
+      "max": 28.104221962276608
+    },
+    "warm_prefill_tps": {
+      "median": 129.86344589362207,
+      "min": 129.77816903935448,
+      "max": 130.0064074586533
+    },
+    "warm_prompt_tokens": {
+      "median": 434,
+      "min": 434,
+      "max": 434
+    },
+    "warm_mtp_draft": null,
+    "warm_mtp_accept": null,
+    "process_hwm_kib": 508648
+  },
+  "ttft": [
+    {
+      "first_content_s": 3.3920332570560277,
+      "wall_s": 3.644564894028008,
+      "output_sha256": "1f1791b72267aa8cc1914df9d21babdcc6f59b1f32522cab2d36fd3eda9b9676"
+    },
+    {
+      "first_content_s": 3.3466832120902836,
+      "wall_s": 3.597873914986849,
+      "output_sha256": "1f1791b72267aa8cc1914df9d21babdcc6f59b1f32522cab2d36fd3eda9b9676"
+    },
+    {
+      "first_content_s": 3.3450248510343954,
+      "wall_s": 3.6006258620182052,
+      "output_sha256": "1f1791b72267aa8cc1914df9d21babdcc6f59b1f32522cab2d36fd3eda9b9676"
+    }
+  ],
+  "safety_guard": [],
+  "host_memory_guard": {
+    "baseline_gpu": {
+      "vram_total": 17179869184,
+      "vram_used": 953573376,
+      "gtt_total": 25139408896,
+      "gtt_used": 153423872
+    },
+    "baseline_mem_available_kib": 38767804,
+    "min_mem_available_kib": 32797744,
+    "min_swap_free_kib": 56407860,
+    "gpu_vram_global_peak_bytes": 17003872256,
+    "gpu_gtt_global_peak_bytes": 5632081920
+  }
+}
